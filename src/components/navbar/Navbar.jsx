@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./Navbar.scss"
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import newRequest from '../../utils/newRequest';
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
@@ -19,11 +20,22 @@ const Navbar = () => {
     }
   },[])
 
-  const currentUser={
-    id:1,
-    username:"Joe Rogan",
-    isSeller:true
+  const navigate=useNavigate()
+  const currentUser=JSON.parse(localStorage.getItem("currentUser"));
+
+  const handleLogout=async()=>{
+    try {
+      await newRequest.post('/auth/logout')
+      localStorage.setItem("currentUser",null)
+      navigate("/")
+      
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
   }
+
   return (
     <div className={active || pathname!='/' ? "navbar active" : "navbar"}>
       <div className='container'>
@@ -37,12 +49,12 @@ const Navbar = () => {
           <span>Fiverr Business</span>
           <span>Explore</span>
           <span>English</span>
-          <span>Sign In</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}
-          {!currentUser && <button>Join</button>}
+          {!currentUser && <Link className='link' to="/login"><span>Sign In</span></Link>}
+          {!currentUser && <Link className='link' to="/register"><button>Join</button></Link>}
           {currentUser && (
             <div className="user" onClick={()=>{open?setOpen(false):setOpen(true)}}>
-            <img src="https://lh3.googleusercontent.com/-cOr9P03a_fM/AAAAAAAAAAI/AAAAAAAAAAA/APmPUbEn9JPZ6_XA58ICvND3yWUBiUFOfw/photo.jpg?sz=46" alt="" />
+            <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
               <span>{currentUser?.username}</span>
               {open &&<div className="options">
                 {
@@ -54,7 +66,7 @@ const Navbar = () => {
                   )}
                 <Link  className='link' to="orders">Orders</Link>
                 <Link  className='link' to="messages">Messages</Link>
-                <Link  className='link'>Logout</Link>
+                <Link  className='link' onClick={handleLogout} >Logout</Link>
               </div>
               }
             </div>
