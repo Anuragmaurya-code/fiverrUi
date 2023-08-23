@@ -1,65 +1,71 @@
-.footer{
-    display: flex;
-    justify-content: center;
-    color: #999;
-    margin: 50px 0;
-    img{
-        width: 24px;
-        height: 24px;
-    }
-    .container{
-        width: 1400px;
-        hr{
-            margin: 50px;
-            height: 0;
-            border-top: 1px solid lightgray;
-            border-bottom: 0;
-        }
-        .top{
-            padding: 70px;
-            display: flex;
-            justify-content: space-between;
-            gap: 100px;
-            h2{
-                font-size: 16px;
-                color: #555;
+.footer {
+  display: flex;
+  justify-content: center;
+  color: #666;
+  margin: 50px 0px;
 
-            }
-            span{
-                font-weight: 300;
-            }
-            .item{
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-            }
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .container {
+    width: 1400px;
+    .top {
+      display: flex;
+      justify-content: space-between;
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        h2 {
+          font-size: 16px;
+          color: #555;
         }
-        .bottom{
-            display: flex;
-            justify-content: space-between;
-            .left{
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                span{
-                    font-size: 13px;
-                }
-            }
-            .right{
-                display: flex;
-                align-items: center;
-                gap: 30px;
-                .social{
-                    display: flex;
-                    align-items: center;
-                    gap: 20px;
-                }
-                .link{
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-            }
+        span {
+          font-weight: 300;
         }
+      }
     }
+
+    hr {
+      margin: 50px 0px;
+      height: 0;
+      border: 1px solid #ebe9e9;
+    }
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .left {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        span {
+          font-size: 13px;
+          white-space: nowrap;
+        }
+      }
+      .right {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .social {
+          display: flex;
+          gap: 20px;
+        }
+
+        .link {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    }
+  }
 }

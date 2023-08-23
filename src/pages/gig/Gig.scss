@@ -21,7 +21,8 @@
         color: #555;
       }
 
-      
+      h1 {
+      }
 
       .user {
         display: flex;
@@ -57,11 +58,13 @@
           }
         }
       }
-      img{
-        
-        background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+
+      .slider {
+        background-color: #F5F5F5;
+        img {
+          max-height: 500px;
+          object-fit: contain;
+        }
       }
 
       h2 {
@@ -236,16 +239,16 @@
         align-items: center;
         justify-content: space-between;
 
-        h2 {
+        h2{
           font-weight: 300;
         }
 
-        h3 {
+        h3{
           font-weight: 500;
         }
       }
 
-      p {
+      p{
         color: gray;
         margin: 10px 0px;
       }
@@ -267,8 +270,8 @@
         }
       }
 
-      .features {
-        .item {
+      .features{
+        .item{
           display: flex;
           align-items: center;
           gap: 10px;
@@ -276,13 +279,13 @@
           color: gray;
           margin-bottom: 5px;
 
-          img {
+          img{
             width: 14px;
           }
         }
       }
 
-      button {
+      button{
         background-color: #1dbf73;
         padding: 10px;
         color: white;
