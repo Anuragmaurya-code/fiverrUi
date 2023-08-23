@@ -18,9 +18,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install dependencies
-        uses: bahmutov/yarn-install@v1
+        uses: yarn install
 
       - name: Build project
         run: npm run build
